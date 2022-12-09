@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  users_backend:
+    build: . 
+    container_name: users-ms
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - 8001:8000
+    # depends_on:
+    #   - users_db
+    networks:
+      - users
+
+networks:
+  users:
+    name: users
